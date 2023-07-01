@@ -27,7 +27,6 @@ set(CORTEX_TYPE "cm7" CACHE STRING "CPU identifier for toolchains options")
 # Set pre-requsites for selecting the STM32 microcontroller family type
 set(STM32_TYPE "h7" CACHE STRING "STM32 HAL Microcontroller type")
 # Set pre-requisite for exact device name of the STM32
-#set(STM32_DEVICE "STM32F072xB" CACHE STRING "STM32 Microcontoller Device")
 # Set branch names for the sub modules dependencies
 set(GITHUB_BRANCH_TOOLCHAIN "HEAD" CACHE STRING "git SHA for CMake Toolchain")
 
