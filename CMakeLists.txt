@@ -1,5 +1,5 @@
 # Minimum version for cmake compatiblity
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 3.27)
 include(CMakePrintHelpers)
 include(FetchContent)
 
@@ -50,3 +50,4 @@ set(CPACK_SOURCE_IGNORE_FILES
 )
 set(CPACK_VERBATIM_VARIABLES YES)
 include(CPack)
+c
