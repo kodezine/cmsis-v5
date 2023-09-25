@@ -1,57 +1,90 @@
 {
-    "version": 2,
-    "cmakeMinimumRequired": {
-        "major": 3,
-        "minor": 22,
-        "patch": 0
-    },
-    "configurePresets": [
+  "version": 2,
+  "cmakeMinimumRequired": {
+      "major": 3,
+      "minor": 22,
+      "patch": 0
+  },
+  "configurePresets": [
     {
-        "name": "AC6",
-        "displayName": "AC6",
-        "description": "Static Library with AC6",
+        "name": "CPack_Clang_STM32F031K6",
+        "displayName": "CPack_Clang_STM32F031K6",
+        "description": "STM32F031K6 CPack generates a interface library to be used by CMake with Clang for Embedded ARM",
         "generator": "Ninja",
         "environment": {
-            "CORTEX_TYPE": "cm7"
+            "CORTEX_TYPE": "CM0",
+            "LLVM_CLANG_ROOT_FOLDER": "/Users/sohal/toolchains/LLVMEmbeddedToolchainForArm-17.0.0-Darwin-AArch64",
+            "SEGGER_JLINK_ROOT_FOLDER": "/Applications/SEGGER/JLink"
         },
         "binaryDir": "${sourceDir}/build/${presetName}",
         "cacheVariables": {
             "FETCHCONTENT_UPDATES_DISCONNECTED": "OFF",
-            "USE_CMSIS_DSP": true,
             "CMAKE_BUILD_TYPE": "Debug",
             "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
-            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/build/${presetName}/_deps/cmake-toolchains-src/armclang-community.cmake",
-            "GITHUB_BRANCH_TOOLCHAIN": "HEAD"
+            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/_deps/cmake-toolchains-src/llvm-clang-arm.cmake",
+            "GITHUB_BRANCH_TOOLCHAIN": "HEAD",
+            "STM32_TYPE": "f0",
+            "STM32_DEVICE": "STM32F031x6",
+            "JLINK_DEVICE": "STM32F031K6"
         }
     },
     {
-        "name": "GCC",
-        "displayName": "GCC",
-        "description": "Static library with GCC",
+        "name": "CPack_Clang_STM32H7A3ZI",
+        "displayName": "CPack_Clang_STM32H7A3ZI",
+        "description": "STM32H7A3ZI CPack generates a interface library to be used by CMake with Clang for Embedded ARM",
         "generator": "Ninja",
         "environment": {
-            "CORTEX_TYPE": "cm7",
-            "ARM_GCC_ROOT_FOLDER": "/Users/sohal/toolchains/gcc-arm-none-eabi-10.3-2021.10"
+            "CORTEX_TYPE": "CM7",
+            "LLVM_CLANG_ROOT_FOLDER": "/Users/sohal/toolchains/LLVMEmbeddedToolchainForArm-17.0.0-Darwin-AArch64",
+            "SEGGER_JLINK_ROOT_FOLDER": "/Applications/SEGGER/JLink"
         },
         "binaryDir": "${sourceDir}/build/${presetName}",
         "cacheVariables": {
             "FETCHCONTENT_UPDATES_DISCONNECTED": "OFF",
-            "USE_CMSIS_DSP": true,
             "CMAKE_BUILD_TYPE": "Debug",
             "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
-            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/build/${presetName}/_deps/cmake-toolchains-src/arm-none-eabi-gcc.cmake",
-            "GITHUB_BRANCH_TOOLCHAIN": "HEAD"
+            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/_deps/cmake-toolchains-src/llvm-clang-arm.cmake",
+            "GITHUB_BRANCH_TOOLCHAIN": "HEAD",
+            "STM32_TYPE": "h7",
+            "STM32_DEVICE": "STM32H7A3ZI",
+            "JLINK_DEVICE": "STM32H7A3ZI"
+        }
+    },
+    {
+        "name": "CPack_Clang_STM32H743XI",
+        "displayName": "CPack_Clang_STM32H743XI",
+        "description": "STM32H743XI CPack generates a interface library to be used by CMake with Clang for Embedded ARM",
+        "generator": "Ninja",
+        "environment": {
+            "CORTEX_TYPE": "CM7",
+            "LLVM_CLANG_ROOT_FOLDER": "/Users/sohal/toolchains/LLVMEmbeddedToolchainForArm-17.0.0-Darwin-AArch64",
+            "SEGGER_JLINK_ROOT_FOLDER": "/Applications/SEGGER/JLink"
+        },
+        "binaryDir": "${sourceDir}/build/${presetName}",
+        "cacheVariables": {
+            "FETCHCONTENT_UPDATES_DISCONNECTED": "OFF",
+            "CMAKE_BUILD_TYPE": "Debug",
+            "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
+            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/_deps/cmake-toolchains-src/llvm-clang-arm.cmake",
+            "GITHUB_BRANCH_TOOLCHAIN": "HEAD",
+            "STM32_TYPE": "h7",
+            "STM32_DEVICE": "STM32H743XI",
+            "JLINK_DEVICE": "STM32H743XI"
         }
     }
     ],
     "buildPresets": [
-        {
-            "name": "AC6",
-            "configurePreset": "AC6"
-        },
-        {
-            "name": "GCC",
-            "configurePreset": "GCC"
-        }
+    {
+        "name": "CPack_Clang_STM32F031K6",
+        "configurePreset": "CPack_Clang_STM32F031K6"
+    },
+    {
+        "name": "CPack_Clang_STM32H7A3ZI",
+        "configurePreset": "CPack_Clang_STM32H7A3ZI"
+    },
+    {
+        "name": "CPack_Clang_STM32H743XI",
+        "configurePreset": "CPack_Clang_STM32H743XI"
+    }
     ]
 }
