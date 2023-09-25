@@ -33,14 +33,10 @@ project(
     DESCRIPTION "Header only library for CMSIS"
 )
 
-set(STM32_TYPE "f0")
-set(STM32_DEVICE "STM32F031x6")
-set(JLINK_DEVICE "STM32F031K6")
 include(${cmake-toolchains_SOURCE_DIR}/frameworks/arm_cmsis/arm_cmsis.cmake)
 
-
 # This will set the CPACK tar file as
-# cmsis-5.9.0-CM0-Clang-17.0.0.tar.gz
+# cmsis-5.9.0-CMx-Clang-17.0.0.tar.gz
 set(CPACK_PACKAGE_CHECKSUM SHA3_256)
 set(CPACK_SYSTEM_NAME "$ENV{CORTEX_TYPE}-${CMAKE_C_COMPILER_ID}-${CMAKE_C_COMPILER_VERSION}")
 set(CPACK_BINARY_TGZ "ON")
