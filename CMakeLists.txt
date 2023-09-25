@@ -1,8 +1,12 @@
 # Minimum version for cmake compatiblity
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.22)
 include(CMakePrintHelpers)
 include(FetchContent)
 
+# Set branch names for the sub modules dependencies
+set(GITHUB_BRANCH_TOOLCHAIN "HEAD" CACHE STRING "git SHA for CMake Toolchain")
+# set the location of all fetched repos
+set(FETCHCONTENT_BASE_DIR "${CMAKE_SOURCE_DIR}/_deps")
 # show limited messages while cloning git repos
 set(FETCHCONTENT_QUIET ON)
 
@@ -20,14 +24,33 @@ if(NOT cmake-toolchains_POPULATED)
     FetchContent_Populate(cmake-toolchains)
 endif()
 
-project(libCMSIS)
+set(GITHUB_BRANCH_CMSIS "5.9.0")
 
-# Set pre-requsities for selecting the CPU identifier for cross compilation
-set(CORTEX_TYPE "cm7" CACHE STRING "CPU identifier for toolchains options")
-# Set pre-requsites for selecting the STM32 microcontroller family type
-set(STM32_TYPE "h7" CACHE STRING "STM32 HAL Microcontroller type")
-# Set pre-requisite for exact device name of the STM32
-# Set branch names for the sub modules dependencies
-set(GITHUB_BRANCH_TOOLCHAIN "HEAD" CACHE STRING "git SHA for CMake Toolchain")
+project(
+    cmsis
+    VERSION ${GITHUB_BRANCH_CMSIS}
+    LANGUAGES C
+    DESCRIPTION "Header only library for CMSIS"
+)
 
-include(${cmake-toolchains_SOURCE_DIR}/frameworks/lib_cmsis.cmake)
+set(STM32_TYPE "f0")
+set(STM32_DEVICE "STM32F031x6")
+set(JLINK_DEVICE "STM32F031K6")
+include(${cmake-toolchains_SOURCE_DIR}/frameworks/arm_cmsis/arm_cmsis.cmake)
+
+
+# This will set the CPACK tar file as
+# cmsis-5.9.0-CM0-Clang-17.0.0.tar.gz
+set(CPACK_PACKAGE_CHECKSUM SHA3_256)
+set(CPACK_SYSTEM_NAME "$ENV{CORTEX_TYPE}-${CMAKE_C_COMPILER_ID}-${CMAKE_C_COMPILER_VERSION}")
+set(CPACK_BINARY_TGZ "ON")
+set(CPACK_BINARY_ZIP "OFF")
+set(CPACK_BINARY_ZIP "OFF")
+set(CPACK_BINARY_NSIS "OFF")
+set(CPACK_SOURCE_IGNORE_FILES
+  \\.git/
+  build/
+  ".*~$"
+)
+set(CPACK_VERBATIM_VARIABLES YES)
+include(CPack)
