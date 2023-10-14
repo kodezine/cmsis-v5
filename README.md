@@ -1,6 +1,6 @@
 # cmsis-v5
 CMake based CPack for using cmsis v5 with other toolchains
-
+This project is to be used
 ## Targets
 How to build for `STM32F031K6`
 ```
