@@ -21,7 +21,7 @@
             "FETCHCONTENT_UPDATES_DISCONNECTED": "OFF",
             "CMAKE_BUILD_TYPE": "Debug",
             "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
-            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/build/${presetName}/_deps/cmake-toolchains-src/llvm-clang-arm.cmake",
+            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/_deps/cmake_scripts-src/toolchains/llvm_clang_arm.cmake",
             "GITHUB_BRANCH_TOOLCHAIN": "HEAD",
             "STM32_TYPE": "f0",
             "STM32_DEVICE": "STM32F031x6",
@@ -43,7 +43,7 @@
             "FETCHCONTENT_UPDATES_DISCONNECTED": "OFF",
             "CMAKE_BUILD_TYPE": "Debug",
             "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
-            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/build/${presetName}/_deps/cmake-toolchains-src/llvm-clang-arm.cmake",
+            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/_deps/cmake_scripts-src/toolchains/llvm_clang_arm.cmake",
             "GITHUB_BRANCH_TOOLCHAIN": "HEAD",
             "STM32_TYPE": "h7",
             "STM32_DEVICE": "STM32H7A3ZI",
@@ -65,7 +65,7 @@
             "FETCHCONTENT_UPDATES_DISCONNECTED": "OFF",
             "CMAKE_BUILD_TYPE": "Debug",
             "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
-            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/build/${presetName}/_deps/cmake-toolchains-src/llvm-clang-arm.cmake",
+            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/_deps/cmake_scripts-src/toolchains/llvm_clang_arm.cmake",
             "GITHUB_BRANCH_TOOLCHAIN": "HEAD",
             "STM32_TYPE": "h7",
             "STM32_DEVICE": "STM32H743XI",
@@ -100,29 +100,6 @@
     {
         "name": "CPack_Clang_STM32H743XI",
         "configurePreset": "CPack_Clang_STM32H743XI"
-    }
-    ],
-    "packagePresets": [
-    {
-        "name": "CPack_Clang_STM32F031K6",
-        "configurePreset": "CPack_Clang_STM32F031K6",
-        "generators": [
-            "TGZ"
-        ]
-    },
-    {
-        "name": "CPack_Clang_STM32H7A3ZI",
-        "configurePreset": "CPack_Clang_STM32H7A3ZI",
-        "generators": [
-            "TGZ"
-        ]
-    },
-    {
-        "name": "CPack_Clang_STM32H743XI",
-        "configurePreset": "CPack_Clang_STM32H743XI",
-        "generators": [
-            "TGZ"
-        ]
     }
     ]
 }
