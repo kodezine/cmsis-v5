@@ -30,4 +30,4 @@ project(
     DESCRIPTION "Header only library for CMSIS v5"
 )
 
-include(${cmake_scripts_SOURCE_DIR}/frameworks/cmsis_v5/arm_cmsis_v5.cmake)
+include(${cmake_scripts_SOURCE_DIR}/frameworks/cmsis_v5/cmsis_v5.cmake)
