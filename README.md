@@ -1,4 +1,4 @@
-# cmsis-v5
+# cmsis_v5
 CMake based CPack for using cmsis v5 with other toolchains
 This project is to be used
 ## Targets
